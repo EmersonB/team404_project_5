@@ -1,4 +1,3 @@
-
 from sense_hat import SenseHat
 import sys
 import os
@@ -8,10 +7,10 @@ import random
 import json
 
 class SensorForestFire():
-        device_id = None
+        device_id = 3
         device_lon = 0.0
         device_lat = 0.0
-        device_description = "ForestFire"
+        device_description = "IoT/ForestFire"
         device_last_time = time.time()
         device_last_temp = 0.0
         device_last_humidity = 0.0
@@ -22,14 +21,16 @@ class SensorForestFire():
         device_sensor = SenseHat()
 
         def _init_(self):
-                self.device_id = random.random()
+                device_sensor = SenseHat()
+                self.device_id = 3
                 self.device_lon = random.uniform(-76.8, -77.2)
                 self.device_lat = random.uniform(38.75, 39.0)
                 self.device_last_time = time.time()
                 self.device_last_temp = device_sensor.get_temperature()
                 self.device_last_humidity = device_sensor.get_humidity()
-                self.device_last_accel = get_accelerometer()
-                self.device_last_pressure = get_pressure()
+                self.device_last_accel = device_sensor.get_accelerometer()
+                self.device_last_pressure = device_sensor.get_pressure()
+                return self
 
         def update_temp(self):
                 device_sensor = SenseHat()
