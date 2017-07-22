@@ -70,5 +70,5 @@ def connect(sensor):
                 i=i+1
 
 
-sensor = SensorEarthquake()
+sensor = SensorEarthquake()._init_()
 connect(sensor)
