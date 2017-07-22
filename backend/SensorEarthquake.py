@@ -7,10 +7,10 @@ import random
 import json
 
 class SensorEarthquake():
-        device_id = None
+        device_id = 2
         device_lon = 0.0
         device_lat = 0.0
-        device_description = "Earthquake"
+        device_description = "IoT/Earthquake"
         device_last_time = time.time()
         device_last_accel = 0.0
         device_last_gyro = 0.0
@@ -20,14 +20,16 @@ class SensorEarthquake():
         device_sensor = SenseHat()
 
         def _init_(self):
-                self.device_id = random.random()
+                device_sensor = SenseHat()
+                self.device_id = 2
                 self.device_lon = random.uniform(-76.8, -77.2)
                 self.device_lat = random.uniform(38.75, 39.0)
                 self.device_last_time = time.time()
                 self.device_last_temp = device_sensor.get_gyroscope()
                 self.device_last_humidity = device_sensor.get_accelerometer()
-                self.device_last_mag = get_compass()
-                self.device_last_pressure = get_pressure()
+                self.device_last_mag = device_sensor.get_compass()
+                self.device_last_pressure = device_sensor.get_pressure()
+                return self
 
         def update_accel(self):
                 device_sensor = SenseHat()
