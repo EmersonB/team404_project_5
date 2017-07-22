@@ -2,6 +2,14 @@ import time
 import datetime
 
 class SensorMsg(object):
+	device_id = None
+	device_status= 0
+	device_lon= 0.0
+	device_type=0.0
+	device_val=0
+	time_stamp=time.time()
+	time_str = None
+
 	def _init_(self):
 		self.device_id     = None
 		self.device_status = 0
@@ -47,7 +55,7 @@ class SensorMsg(object):
 	def setTimeStamp (self, timeStamp):
 		self.time_stamp = timeStamp
 	def updateTime(self):
-	#	self.time_str = str(self.time_stamp)
+		self.time_str = None
 
 	def parseMessage (self, msg):
 		kvpTokens = msg.split(';')

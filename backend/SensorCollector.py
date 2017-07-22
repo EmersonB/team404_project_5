@@ -5,7 +5,6 @@ sensor = SenseHat()
 sys.path.insert(0, "/home/pi/workspace/iot/Common")
 from SensorMsg import SensorMsg
 sensorMsg = SensorMsg()
-
 sensorMsg.setDeviceID(101)
 sensorMsg.setDeviceLatitude (12.34567)
 sensorMsg.setDeviceLongitude(-123.4567)
@@ -21,7 +20,7 @@ while True:
 	
 	msg = sensorMsg.toString()
 
-	sensor.show_message(msg, scroll_speed = 0.02)
+	sensor.show_message(msg, scroll_speed = 0.10)
 	time.sleep(5)
 
 	
